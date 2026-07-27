@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: fraud-graph-poc
+  neo4j:
+    uri: ${NEO4J_URI:bolt://localhost:7687}
+    authentication:
+      username: ${NEO4J_USER:neo4j}
+      password: ${NEO4J_PASSWORD:password123}
+
+server:
+  port: ${SERVER_PORT:8080}
+
+app:
+  seed:
+    enabled: ${APP_SEED_ENABLED:true}
+  fraud:
+    default-max-hops: 4
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
